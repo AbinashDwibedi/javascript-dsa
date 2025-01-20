@@ -31,34 +31,103 @@
 
 // Representation of binary tree
 
+// class TreeNode{
+//     constructor(data){
+//         this.data = data;
+//         this.left = null;
+//         this.right = null;
+//     }
+//     addLeft(child){
+//         this.left = child;
+//     }
+//     addRight(child){
+//         this.right = child;
+//     }
+// }
+
+// const root = new TreeNode("root");
+// const left = new TreeNode("left");
+// const right = new TreeNode("right");
+
+// const leftLeft = new TreeNode("left left");
+// const leftRight = new TreeNode("left right");
+
+// left.addLeft(leftLeft);
+// left.addRight(leftRight);
+
+// root.addLeft(left);
+// root.addRight(right);
+
+// console.log(root);
+
+
+// Binary Search tree
+
 class TreeNode{
     constructor(data){
         this.data = data;
         this.left = null;
         this.right = null;
     }
-    addLeft(child){
-        this.left = child;
+}   
+
+class BinarySearchTree{
+    constructor(){
+        this.root = null;
     }
-    addRight(child){
-        this.right = child;
+    insert(data){
+        const newData = new TreeNode(data);
+        if(!this.root){
+            this.root = newData;
+            return;
+        }
+        let current = this.root;
+        while(true){
+            if(data < current.data){
+                if(!current.left){
+                    current.left = newData;
+                    return
+                }
+                current = current.left;
+            }
+            else if(data > current.data){
+                if(!current.right){
+                    current.right = newData;
+                    return
+                }
+                current = current.right;
+            }
+            else{
+                return
+            }
+        }
+    }
+    search(data){
+        let current = this.root;
+        while(current !== null){
+            if(data === current.data){
+                return true;
+            }
+            else if(data < current.data){
+                current = current.left;
+            }
+            else if(data > current.data){
+                current = current.right;
+            }
+        }
+        return false
     }
 }
 
-const root = new TreeNode("root");
-const left = new TreeNode("left");
-const right = new TreeNode("right");
+const tree = new BinarySearchTree();
+const child1 = 30;
+const child2 = 70;
+const child3 = 60;
+const child4 = 40;
 
-const leftLeft = new TreeNode("left left");
-const leftRight = new TreeNode("left right");
+tree.insert(child1);
+tree.insert(child2);
+tree.insert(child3);
+tree.insert(child4);
 
-left.addLeft(leftLeft);
-left.addRight(leftRight);
-
-root.addLeft(left);
-root.addRight(right);
-
-console.log(root);
-
-
-
+console.log(JSON.stringify(tree,null,2));

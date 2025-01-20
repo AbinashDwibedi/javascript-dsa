@@ -5,7 +5,7 @@ This repository contains implementations of fundamental data structures in JavaS
 ## Contents
 - **Tree**
   - Binary Tree
-  <!-- - Binary Search Tree -->
+  - Binary Search Tree
 - **Linked List**
   - Singly Linked List
   <!-- - Doubly Linked List -->
