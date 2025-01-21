@@ -11,7 +11,7 @@ This repository contains implementations of fundamental data structures in JavaS
   <!-- - Doubly Linked List -->
 - **Queue**
   - Linear Queue
-  <!-- - Circular Queue -->
+  - Circular Queue
 - **Stack**
 
 ## How to Use
